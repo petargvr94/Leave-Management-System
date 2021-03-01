@@ -26,7 +26,7 @@ namespace leave_management.Repository
             _db.LeaveHistories.Remove(entity);
             return Save();
         }
-
+       
         public ICollection<LeaveHistory> FindAll()
         {
             throw new NotImplementedException();
@@ -35,6 +35,12 @@ namespace leave_management.Repository
         public LeaveHistory FindById(int id)
         {
             throw new NotImplementedException();
+        }
+
+        public bool isExists(int id)
+        {
+            var exists = _db.LeaveHistories.Any(q => q.Id == id);
+            return exists;
         }
 
         public bool Save()
